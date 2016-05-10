@@ -86,6 +86,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdb/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb \
     $(LOCAL_PATH)/audio/acdb/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
     $(LOCAL_PATH)/audio/acdb/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb \
+    $(LOCAL_PATH)/audio/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
@@ -193,14 +194,18 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxVenc \
     libOmxVidcCommon \
-    libqcmediaplayer \
     libstagefrighthw \
-    libstagefright_soft_flacdec \
-    qcmediaplayer
+    libstagefright_soft_flacdec
 
 # Power
 PRODUCT_PACKAGES += \
     power.msm8994
+
+# QMI
+PRODUCT_PACKAGES += \
+    dsi_config.xml \
+    netmgr_config.xml \
+    qmi_config.xml
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -215,18 +220,15 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     ueventd.qcom.rc
 
-# QMI
-PRODUCT_PACKAGES += \
-    dsi_config.xml \
-    netmgr_config.xml \
-    qmi_config.xml
-
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
 # Sensors
+PRODUCT_PACKAGES += \
+    sensors.msm8994
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
@@ -259,6 +261,7 @@ PRODUCT_PACKAGES += \
     ipacm \
     ipacm-diag \
     IPACM_cfg.xml \
+    libwifi-hal-qcom \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     libwpa_client \
